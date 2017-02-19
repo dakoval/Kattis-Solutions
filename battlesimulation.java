@@ -27,7 +27,3 @@ public class battlesimulation {
         bw.flush();
     }
 }
-
-/*
-
- */
