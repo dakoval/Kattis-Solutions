@@ -4,26 +4,33 @@ package Solutions;
  *
  * @author Max
  */
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class fastfood {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int tc = sc.nextInt();
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int tc = Integer.parseInt(br.readLine());
         for (int c = 0; c < tc; c++) {
-            int n = sc.nextInt(), m = sc.nextInt() + 1;
+            String[] str = br.readLine().split(" ");
+            int n = Integer.parseInt(str[0]), m = Integer.parseInt(str[1]) + 1;
             int[] have = new int[m];
             int[][] grid = new int[n][m];
             for (int i = 0; i < n; i++) {
-                int t = sc.nextInt() + 1;
+                str = br.readLine().split(" ");
+                int t = Integer.parseInt(str[0]) + 1;
                 for (int j = 1; j < t; j++) {
-                    grid[i][sc.nextInt()] = 1;
+                    grid[i][Integer.parseInt(str[j])] = 1;
                 }
-                grid[i][0] = sc.nextInt();
+                grid[i][0] = Integer.parseInt(str[t]);
             }
+            str = br.readLine().split(" ");
             for (int i = 1; i < m; i++) {
-                have[i] = sc.nextInt();
+                have[i] = Integer.parseInt(str[i - 1]);
             }
             int max = 0;
             for (int j = 0; j < n; j++) {
